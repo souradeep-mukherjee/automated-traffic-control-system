@@ -153,3 +153,4 @@ with col3:
     else:
         st.markdown('<p class="stText">No results to display. Please process images and run the simulation.</p>',
                     unsafe_allow_html=True)
+#KEEP THE DOCUMENT AT 67% FOR MAX VISIBILITY
