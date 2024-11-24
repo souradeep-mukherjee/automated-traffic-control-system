@@ -150,7 +150,15 @@ with col3:
             if batch_index < len(traffic_light_results) - 1:  # Avoid sleeping after the last batch
                 st.markdown('<p class="stText">Processing next batch in 5 seconds...</p>', unsafe_allow_html=True)
                 time.sleep(5)  # Wait 5 seconds before showing the next batch
+
+        # Cleanup: Delete annotated images
+        for annotated_image_path in annotated_images:
+            try:
+                os.remove(annotated_image_path)
+            except OSError as e:
+                st.write(f"Error deleting file {annotated_image_path}: {e}")
+
+        st.markdown('<p class="stText">All annotated images have been deleted from the directory.</p>', unsafe_allow_html=True)
     else:
-        st.markdown('<p class="stText">No results to display. Please process images and run the simulation.</p>',
-                    unsafe_allow_html=True)
+        st.markdown('<p class="stText">No results to display. Please process images and run the simulation.</p>', unsafe_allow_html=True)
 #KEEP THE DOCUMENT AT 67% FOR MAX VISIBILITY
